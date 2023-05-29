@@ -2,6 +2,7 @@ class SaxophonesController < ApplicationController
   before_action :set_saxophone, only: %i[show edit update]
 
   def index
+    @saxophones = Saxophone.all
   end
 
   def show
