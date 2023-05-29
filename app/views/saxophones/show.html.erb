@@ -1,0 +1,30 @@
+<div class="row justify-content-center mt-5">
+  <div class="col-10 p-5 d-flex gap-3 show-card">
+    <div class="status">
+      <% if @saxophone.status == true %>
+        <p class="btn btn-outline-secondary btn-sm">Vendido</p>
+      <% else %>
+        <p class="btn btn-success btn-sm text-light">Disponível</p>
+      <% end %>
+    </div>
+    <div class="picture">
+      <img src="https://ae01.alicdn.com/kf/HTB1AGF4JXXXXXaTaXXXq6xXFXXX0/Conn-Chu-Berry-nova-maravilha-ouro-tenor-sax-modelo-profissional.jpg" alt="saxophone" class="sax-picture">
+    </div>
+    <div class="info">
+      <h1 class="mb-3"><%= @saxophone.title %></h1>
+      <div class="d-flex gap-3">
+        <p><strong> Fabricante: </strong><%= @saxophone.manufacturer %></p>
+        <p><strong> Modelo: </strong><%= @saxophone.sax_model %></p>
+        <p><strong> Categoria: </strong><%= @saxophone.category %></p>
+      </div>
+      <p><%= @saxophone.details %></p>
+      <p><strong> Número de série: </strong><%= @saxophone.serial_number %></p>
+      <p><strong> Preço: </strong>R$<%= @saxophone.price %></p>
+      <p><strong> Estado: </strong><%= @saxophone.condition %></p>
+      <div class="d-flex gap-3">
+    </div>
+      <%= link_to "Comprar", saxophone_path(@saxophone), class: "btn btn-primary" %>
+      <%= link_to "Outros produtos deste vendedor",  user_saxophones_path(@saxophone.user), class: "btn btn-secondary" %>
+    </div>
+  </div>
+</div>
