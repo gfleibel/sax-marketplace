@@ -1,0 +1,18 @@
+<div class="container">
+  <h1 class="text-start mt-4 mb-4">Todos os Saxofones</h1>
+
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <% @saxophones.each do |sax| %>
+      <div class="col-3 d-flex justify-content-center">
+        <div class="card" style="width: 400px; height: 600px">
+          <img src="https://i0.wp.com/www.kesslerandsons.com/wp-content/uploads/kessler-custom-handmade-alto-vintage-sax.jpg?fit=1000%2C1070&ssl=1" class="card-img-top" alt="...">
+          <div class="card-body d-flex flex-column justify-content-center align-items-center">
+            <p class="card-text text-center"><%= sax.title %></p>
+            <p class="card-text fw-bold card-title">R$<%= sax.price %></p>
+            <%= link_to "Saiba Mais", saxophone_path(sax), class: "btn border fw-bold rounded"%>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
