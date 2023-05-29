@@ -1,4 +1,6 @@
 class SaxophonesController < ApplicationController
+  before_action :set_saxophone
+
   def index
   end
 
@@ -18,5 +20,11 @@ class SaxophonesController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def set_saxophone
+    @saxophone = Saxophone.find(params[:id])
   end
 end
