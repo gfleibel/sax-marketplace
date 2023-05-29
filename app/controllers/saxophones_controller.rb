@@ -1,5 +1,5 @@
 class SaxophonesController < ApplicationController
-  before_action :set_saxophone
+  before_action :set_saxophone, only: %i[show edit update]
 
   def index
   end
@@ -14,6 +14,8 @@ class SaxophonesController < ApplicationController
   def create
     @saxophone = Saxophone.new(saxophone_params)
     @saxophone.save
+
+    redirect_to saxophone_path(params[:id])
   end
 
   def edit
@@ -28,7 +30,7 @@ class SaxophonesController < ApplicationController
   private
 
   def saxophone_params
-    params.require(:saxophone).permit(:title, :manufacturer, :category, :sax_model, :condition, :serial_number, :details)
+    params.require(:saxophone).permit(:title, :price, :manufacturer, :category, :sax_model, :condition, :serial_number, :details, status: false)
   end
 
   def set_saxophone
