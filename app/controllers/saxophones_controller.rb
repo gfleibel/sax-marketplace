@@ -1,4 +1,6 @@
 class SaxophonesController < ApplicationController
+  before_action :set_saxophone
+
   def index
   end
 
@@ -25,7 +27,13 @@ class SaxophonesController < ApplicationController
   def destroy
   end
 
+  private
+
   def saxophone_params
     params.require(:saxophone).permit(:title, :manufacturer, :category, :sax_model, :condition, :serial_number, :details)
+  end
+  
+  def set_saxophone
+    @saxophone = Saxophone.find(params[:id])
   end
 end
