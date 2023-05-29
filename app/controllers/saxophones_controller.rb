@@ -8,9 +8,14 @@ class SaxophonesController < ApplicationController
   end
 
   def new
+    @saxophone = Saxophone.new
   end
 
   def create
+    @saxophone = Saxophone.find(params[:user_id])
+    @saxophone = Saxophone.new(saxophone_params)
+    @saxophone.user = @user
+    @saxophone.save
   end
 
   def edit
@@ -24,6 +29,10 @@ class SaxophonesController < ApplicationController
 
   private
 
+  def saxophone_params
+    params.require(:saxophone).permit(:title, :manufacturer, :category, :sax_model, :condition, :serial_number, :details)
+  end
+  
   def set_saxophone
     @saxophone = Saxophone.find(params[:id])
   end
