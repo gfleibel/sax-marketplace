@@ -10,9 +10,7 @@ class SaxophonesController < ApplicationController
   end
 
   def create
-    @saxophone = Saxophone.find(params[:user_id])
     @saxophone = Saxophone.new(saxophone_params)
-    @saxophone.user = @user
     @saxophone.save
   end
 
