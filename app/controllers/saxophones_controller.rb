@@ -1,5 +1,6 @@
 class SaxophonesController < ApplicationController
   def index
+    @saxophones = Saxophone.all
   end
 
   def show
