@@ -24,7 +24,8 @@ puts 'Creating saxophones...'
     serial_number: rand(1000..9999).to_s,
     price: Faker::Commerce.price(range: 5000..100000.0),
     details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum lacinia mattis mauris, non eleifend mi consequat id. Aliquam lacinia elit sed magna dapibus, vitae fermentum enim varius.",
-    user: User.all.sample)
+    user: User.all.sample,
+    status: false)
 end
 
 puts "#{Saxophone.count} saxophones created!"
