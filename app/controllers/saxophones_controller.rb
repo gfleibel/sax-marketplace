@@ -1,5 +1,5 @@
 class SaxophonesController < ApplicationController
-  before_action :set_saxophone, only: %i[show edit update]
+  before_action :set_saxophone, only: %i[show edit update destroy]
 
   def index
     @saxophones = policy_scope(Saxophone)
@@ -42,6 +42,8 @@ class SaxophonesController < ApplicationController
 
   def destroy
     authorize @saxophone
+    @saxophone.destroy
+    redirect_to user_saxophones_path(current_user), notice: "Anúncio removido.", status: :see_other
   end
 
   private

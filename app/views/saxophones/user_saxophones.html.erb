@@ -16,10 +16,11 @@
             <p class="card-text fw-bold "><%= sax.title %></p>
             <p class="card-text card-title"><%= number_to_currency_br(sax.price) %></p>
           </div>
-          <%= link_to "Saiba Mais", saxophone_path(sax), class: "btn border fw-bold rounded"%>
+          <%= link_to "Detalhes", saxophone_path(sax), class: "btn border fw-bold rounded"%>
           <% if policy(sax).edit? %>
             <%= link_to "Editar", edit_saxophone_path(sax) %>
           <% end %>
+          <%= link_to "Remover", saxophone_path(sax), data: {turbo_method: :delete, turbo_confirm: 'Você tem certeza?'}, class: "btn btn-danger text-light" if policy(sax).destroy?%>
         </div>
       </div>
     <% end %>

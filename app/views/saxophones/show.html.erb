@@ -35,6 +35,7 @@
       <% if policy(@saxophone).edit? %>
         <%= link_to "Editar", edit_saxophone_path(@saxophone), class: "btn btn-secondary" %>
       <% end %>
+      <%= link_to "Remover", saxophone_path(@saxophone), data: {turbo_method: :delete, turbo_confirm: 'Você tem certeza?'}, class: "btn btn-danger text-light" if policy(@saxophone).destroy?%>
     </div>
   </div>
 </div>
