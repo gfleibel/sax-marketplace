@@ -2,20 +2,21 @@ class SaxophonesController < ApplicationController
   before_action :set_saxophone, only: %i[show edit update]
 
   def index
-    @saxophones = Saxophone.all
+    @saxophones = policy_scope(Saxophone)
   end
 
   def show
+    authorize @saxophone
   end
 
   def user_saxophones
     @user = User.find(params[:user_id])
-    @saxophones = @user.saxophones
-    # @saxophones = Saxophone.where(user: @user)
+    @saxophones = policy_scope(Saxophone).where(user_id: @user.id)
   end
 
   def new
     @saxophone = Saxophone.new
+    authorize @saxophone
   end
 
   def create
@@ -26,15 +27,19 @@ class SaxophonesController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+    authorize @saxophone
   end
 
   def edit
+    authorize @saxophone
   end
 
   def update
+    authorize @saxophone
   end
 
   def destroy
+    authorize @saxophone
   end
 
   private
