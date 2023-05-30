@@ -9,15 +9,16 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
+      <ul class="navbar-nav me-auto align-items-center">
         <% if user_signed_in? %>
           <li class="nav-item active">
             <%= link_to "Home", saxophones_path, class: "nav-link" %>
           </li>
-          <li class="nav-item dropdown mt-2">
-          <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= current_user.full_name %>
-          </a>
+          <li class="ms-4">
+            <%= current_user.full_name%>
+          </li>
+          <li class="nav-item dropdown ms-4">
+            <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle" , id: "navbarDropdown", data: { bs_toggle: "dropdown" }, "aria-haspopup": true, "aria-expanded": false, height: 50, width: 50, crop: :fill%>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Meus items", user_saxophones_path(current_user.id), class: "dropdown-item" %>
               <%= link_to "Ordens", "#", class: "dropdown-item" %>
