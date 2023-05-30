@@ -1,15 +1,5 @@
 <div class="row justify-content-center">
   <div class="col-8 card mt-5 p-5">
-    <%= simple_form_for(@saxophone) do |f| %>
-          <%= f.input :title %>
-          <%= f.input :manufacturer, collection: Saxophone::MANUFACTURERS %>
-          <%= f.input :category, collection: Saxophone::CATEGORIES %>
-          <%= f.input :sax_model, collection: Saxophone::MODELS %>
-          <%= f.input :condition, collection: Saxophone::CONDITIONS %>
-          <%= f.input :serial_number %>
-          <%= f.input :details %>
-          <%= f.input :price %>
-          <%= f.submit class: "btn btn-primary mt-3" %>
-        <% end %>
+    <%= render "form", saxophone: @saxophone %>
   </div>
 </div>
