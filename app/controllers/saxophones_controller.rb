@@ -40,7 +40,7 @@ class SaxophonesController < ApplicationController
   private
 
   def saxophone_params
-    params.require(:saxophone).permit(:title, :price, :manufacturer, :category, :sax_model, :condition, :serial_number, :details, status: false)
+    params.require(:saxophone).permit(:title, :price, :manufacturer, :category, :sax_model, :condition, :serial_number, :photo, :details, status: false)
   end
 
   def set_saxophone

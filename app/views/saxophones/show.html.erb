@@ -8,7 +8,14 @@
       <% end %>
     </div>
     <div class="picture">
-      <img src="https://ae01.alicdn.com/kf/HTB1AGF4JXXXXXaTaXXXq6xXFXXX0/Conn-Chu-Berry-nova-maravilha-ouro-tenor-sax-modelo-profissional.jpg" alt="saxophone" class="sax-picture">
+      <% url = "" %>
+      <% if @saxophone.photo.key
+          url = cloudinary_url @saxophone.photo.key
+        else
+          url = "https://i.pinimg.com/564x/2f/2f/58/2f2f5837fffa68b9b300c99eee660268.jpg"
+        end
+      %>
+      <img src= <%=url%> class="sax-picture" alt="...">
     </div>
     <div class="info">
       <h1 class="mb-3"><%= @saxophone.title %></h1>
