@@ -4,3 +4,8 @@
   border: 1px rgb(165, 165, 165) solid;
   position: relative;
 }
+
+.my-shadow:hover {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.50) !important;
+  transition: 0.3s;
+}
