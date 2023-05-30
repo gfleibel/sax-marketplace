@@ -7,5 +7,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :saxophones
-  validates :full_name, :address, :photo, presence: true
+  validates :full_name, :address, presence: true
 end
