@@ -36,6 +36,8 @@ class SaxophonesController < ApplicationController
 
   def update
     authorize @saxophone
+    @saxophone.update(saxophone_params)
+    redirect_to saxophone_path(@saxophone)
   end
 
   def destroy

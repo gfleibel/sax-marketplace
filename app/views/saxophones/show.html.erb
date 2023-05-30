@@ -26,12 +26,15 @@
       </div>
       <p><%= @saxophone.details %></p>
       <p><strong> Número de série: </strong><%= @saxophone.serial_number %></p>
-      <p><strong> Preço: </strong>R$<%= @saxophone.price %></p>
+      <p><strong> Preço: </strong><%= number_to_currency_br(@saxophone.price) %></p>
       <p><strong> Estado: </strong><%= @saxophone.condition %></p>
       <div class="d-flex gap-3">
     </div>
       <%= link_to "Comprar", saxophone_path(@saxophone), class: "btn btn-primary" %>
       <%= link_to "Outros produtos deste vendedor",  user_saxophones_path(@saxophone.user), class: "btn btn-secondary" %>
+      <% if policy(@saxophone).edit? %>
+        <%= link_to "Editar", edit_saxophone_path(@saxophone), class: "btn btn-secondary" %>
+      <% end %>
     </div>
   </div>
 </div>
