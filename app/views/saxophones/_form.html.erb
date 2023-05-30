@@ -2,6 +2,7 @@
       <%= f.input :title, label: "Título:" %>
       <%= f.input :details, label: "Descrição:" %>
       <%= f.input :price, label: "Preço:" %>
+      <%= f.input :photo, as: :file %>
       <%= f.input :category, collection: Saxophone::CATEGORIES, label: "Categoria:" %>
       <%= f.input :manufacturer, collection: Saxophone::MANUFACTURERS, label: "Fabricante:" %>
       <%= f.input :sax_model, collection: Saxophone::MODELS, label: "Modelo:" %>
