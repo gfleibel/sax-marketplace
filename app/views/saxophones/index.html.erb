@@ -14,7 +14,7 @@
           <img src= <%=url%> class="card-img-top p-5" alt="...">
           <div class="card-body d-flex flex-column justify-content-center align-items-center">
             <p class="card-text text-center"><%= sax.title %></p>
-            <p class="card-text fw-bold card-title">R$<%= sax.price %></p>
+            <p class="card-text fw-bold card-title"><%= number_to_currency_br(sax.price) %></p>
             <%= link_to "Detalhes", saxophone_path(sax), class: "btn border fw-bold rounded"%>
           </div>
         </div>
