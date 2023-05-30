@@ -32,6 +32,7 @@
     </div>
       <%= link_to "Comprar", saxophone_path(@saxophone), class: "btn btn-primary" %>
       <%= link_to "Outros produtos deste vendedor",  user_saxophones_path(@saxophone.user), class: "btn btn-secondary" %>
+      <%= link_to "Remover", saxophone_path(@saxophone), data: {turbo_method: :delete, turbo_confirm: 'Você tem certeza?'}, class: "btn btn-danger text-light" if policy(@saxophone).destroy?%>
     </div>
   </div>
 </div>
