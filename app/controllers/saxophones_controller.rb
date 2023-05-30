@@ -8,6 +8,12 @@ class SaxophonesController < ApplicationController
   def show
   end
 
+  def user_saxophones
+    @user = User.find(params[:user_id])
+    @saxophones = @user.saxophones
+    # @saxophones = Saxophone.where(user: @user)
+  end
+
   def new
     @saxophone = Saxophone.new
   end

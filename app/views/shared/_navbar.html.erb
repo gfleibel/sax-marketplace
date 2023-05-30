@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
+    <%= link_to saxophones_path, class: "navbar-brand" do %>
       <%= image_tag "https://static.thenounproject.com/png/264538-200.png" %>
     <% end %>
 
@@ -12,15 +12,16 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Home", "", class: "nav-link" %>
+            <%= link_to "Home", saxophones_path, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown mt-2">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <%= current_user.full_name %>
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "Meus items", user_saxophones_path(current_user.id), class: "dropdown-item" %>
               <%= link_to "Ordens", "#", class: "dropdown-item" %>
-              <%= link_to "Vender", "#", class: "dropdown-item" %>
+              <%= link_to "Vender", new_saxophone_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
