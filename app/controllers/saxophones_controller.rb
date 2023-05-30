@@ -14,9 +14,12 @@ class SaxophonesController < ApplicationController
 
   def create
     @saxophone = Saxophone.new(saxophone_params)
-    @saxophone.save
-
-    redirect_to saxophone_path(params[:id])
+    @saxophone.user = current_user
+    if @saxophone.save
+      redirect_to saxophone_path(@saxophone)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit
