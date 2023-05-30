@@ -1,4 +1,5 @@
 class Saxophone < ApplicationRecord
+  has_one_attached :photo
   belongs_to :user
   validates :title, :details, :manufacturer, :sax_model, :serial_number, :category, :condition, presence: true
 
