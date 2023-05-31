@@ -17,7 +17,8 @@ class OrdersController < ApplicationController
   def create
     @saxophone = Saxophone.find(params[:saxophone_id])
     @order = Order.new(order_params)
-    if @order.save
+    @saxophone.status = true
+    if @order.save && @saxophone.save
       redirect_to user_orders_path(current_user)
     else
       render :new, status: :unprocessable_entity

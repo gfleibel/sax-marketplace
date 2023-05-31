@@ -1,12 +1,5 @@
 <div class="row justify-content-center mt-5">
   <div class="col-10 p-5 d-flex gap-3 show-card">
-    <div class="status">
-      <% if @saxophone.status == true %>
-        <p class="btn btn-outline-secondary btn-sm">Vendido</p>
-      <% else %>
-        <p class="btn btn-success btn-sm text-light">Disponível</p>
-      <% end %>
-    </div>
     <div class="picture">
       <% url = "" %>
       <% if @saxophone.photo.key
