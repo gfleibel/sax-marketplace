@@ -4,8 +4,22 @@
     <% @saxophones = @saxophones.sort_by(&:id).reverse %>
     <% @saxophones.each do |sax| %>
       <div class="col-3 d-flex justify-content-center">
-        <div class="card rounded-4 my-shadow shadow-sm ps-3 pe-3" style="width: 400px; height: 560px">
-          <p class="card-text fw-bold text-start mt-4 ms-2" style="color:#bf4800"><%= sax.manufacturer %></p>
+        <div class="card rounded-4 my-shadow shadow-sm ps-3 pe-3 d-flex flex-column" style="width: 400px; height: 560px">
+          <div class="d-flex avatar-owner">
+            <p class="card-text fw-bold text-start mt-4 ms-2" style="color:#bf4800"><%= sax.manufacturer %></p>
+            <% sax_url = "" %>
+            <% if sax.user.photo.key
+                sax_url = cloudinary_url sax.user.photo.key
+              else
+                sax_url = "https://cdn-icons-png.flaticon.com/512/6386/6386976.png"
+              end
+            %>
+            <%= link_to user_saxophones_path(sax.user) do %>
+            <img src= <%=sax_url%> class="rounded-circle avatar-image" alt="...">
+            <% end %>
+
+
+          </div>
 
           <% url = "" %>
           <% if sax.photo.key
@@ -27,7 +41,6 @@
                 <%= link_to "Detalhes", saxophone_path(sax), class: "btn btn-light fw-bold rounded-2 shadow-sm" %>
               </div>
             </div>
-
           </div>
         </div>
       </div>
