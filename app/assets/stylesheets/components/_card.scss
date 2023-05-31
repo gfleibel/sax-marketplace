@@ -43,3 +43,10 @@
   padding: 0px;
   margin: 0px;
 }
+
+.card-image{
+  height: 330px;
+  width: 100%;
+  overflow: hidden;
+  object-fit: cover;
+}
