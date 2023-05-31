@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
   def index
     @user = User.find(params[:user_id])
     @orders = Order.where(user_id: @user.id)
-    authorize @orders
+    @saxophones = policy_scope(Saxophone).where(user_id: @user.id)
   end
 
   def new
