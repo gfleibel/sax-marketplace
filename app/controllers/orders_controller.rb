@@ -2,8 +2,8 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @user = User.find(params[:id])
-    @orders = Order.find_by(user_id: @user.id)
+    @user = User.find(params[:user_id])
+    @orders = Order.where(user_id: @user.id)
     authorize @orders
   end
 
@@ -17,9 +17,8 @@ class OrdersController < ApplicationController
   def create
     @saxophone = Saxophone.find(params[:saxophone_id])
     @order = Order.new(order_params)
-    # @order.user = current_user
     if @order.save
-      redirect_to saxophone_orders_path
+      redirect_to user_orders_path(current_user)
     else
       render :new, status: :unprocessable_entity
     end
@@ -29,6 +28,6 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:saxophone_id)
+    params.require(:order).permit(:saxophone_id, :user_id)
   end
 end

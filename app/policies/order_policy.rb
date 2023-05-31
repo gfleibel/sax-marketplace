@@ -6,7 +6,7 @@ class OrderPolicy < ApplicationPolicy
   end
 
   def index?
-    record.user == user
+    record.first.user == user
   end
 
   def create?
