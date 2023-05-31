@@ -6,7 +6,7 @@
 }
 
 .my-shadow:hover {
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.50) !important;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.30) !important;
   transition: 0.3s;
 }
 
@@ -26,4 +26,20 @@
   top: 0;
   left: 0;
   border-radius: 20px;
+}
+
+.card-details{
+  font-weight: lighter;
+  color: rgb(115, 115, 115);
+  font-size: small;
+  font-style: italic;
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
+.card-price{
+  font-weight: bold;
+  font-size: large;
+  padding: 0px;
+  margin: 0px;
 }

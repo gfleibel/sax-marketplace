@@ -1,10 +1,10 @@
-<div class="container">
+<div class="container mt-4 mb-5">
   <h1 class="text-start mt-4 mb-4">Todos os Saxofones</h1>
   <div class="row row-cols-1 row-cols-md-3 g-4">
     <% @saxophones.each do |sax| %>
       <div class="col-3 d-flex justify-content-center">
-        <div class="card rounded-4 my-shadow shadow" style="width: 400px; height: 560px">
-          <p class="card-text fw-bold text-start mt-4 ms-4" style="color:#bf4800"><%= sax.manufacturer %></p>
+        <div class="card rounded-4 my-shadow shadow-sm ps-3 pe-3" style="width: 400px; height: 560px">
+          <p class="card-text fw-bold text-start mt-4 ms-2" style="color:#bf4800"><%= sax.manufacturer %></p>
 
           <% url = "" %>
           <% if sax.photo.key
@@ -14,18 +14,19 @@
             end
           %>
           <div class="img-container-card">
-            <img src= <%=url%> class="p-2" alt="...">
+            <img src= <%=url%> class="rounded-4" alt="...">
           </div>
 
-          <div class="card-body d-flex justify-content-around align-items-start">
-            <div class="d-flex flex-column align-items-start">
-              <p class="card-text fw-bold"><%= sax.title %></p>
-              <p class="card-text fw-bold card-title"><%= number_to_currency_br(sax.price) %></p>
+          <div class="card-body ps-1 mb-2">
+            <div class="d-flex flex-column">
+              <p class="card-text fw-bold mb-2"><%= sax.title %></p>
+              <p class="card-details"><%= "#{sax.details[0..40]}..." %></p>
+              <div class="d-flex justify-content-between align-items-center mt-3">
+                <p class="card-price"><%= number_to_currency_br(sax.price) %></p>
+                <%= link_to "Detalhes", saxophone_path(sax), class: "btn btn-light fw-bold rounded-2 shadow-sm" %>
+              </div>
             </div>
 
-            <div class="mt-3">
-              <%= link_to "Detalhes", saxophone_path(sax), class: "btn border fw-bold rounded-4 shadow" %>
-            </div>
           </div>
         </div>
       </div>
