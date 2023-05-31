@@ -15,7 +15,7 @@
           url = "https://i.pinimg.com/564x/2f/2f/58/2f2f5837fffa68b9b300c99eee660268.jpg"
         end
       %>
-      <img src= <%=url%> class="sax-picture" alt="...">
+      <img src= <%=url%> class="sax-picture me-2" alt="...">
     </div>
     <div class="info">
       <h1 class="mb-3"><%= @saxophone.title %></h1>
@@ -24,14 +24,14 @@
         <p><strong> Modelo: </strong><%= @saxophone.sax_model %></p>
         <p><strong> Categoria: </strong><%= @saxophone.category %></p>
       </div>
-      <p><%= @saxophone.details %></p>
+      <p class="card-details"><%= @saxophone.details %></p>
       <p><strong> Número de série: </strong><%= @saxophone.serial_number %></p>
       <p><strong> Preço: </strong><%= number_to_currency_br(@saxophone.price) %></p>
       <p><strong> Estado: </strong><%= @saxophone.condition %></p>
       <div class="d-flex gap-3">
     </div>
-      <%= link_to "Comprar", saxophone_path(@saxophone), class: "btn btn-primary" %>
-      <%= link_to "Outros produtos deste vendedor",  user_saxophones_path(@saxophone.user), class: "btn btn-secondary" %>
+      <%= link_to "Comprar", saxophone_path(@saxophone), class: "btn btn-primary shadow-sm" %>
+      <%= link_to "Outros produtos deste vendedor",  user_saxophones_path(@saxophone.user), class: "btn btn-light border rounded-2 shadow-sm" %>
       <% if policy(@saxophone).edit? %>
         <%= link_to "Editar", edit_saxophone_path(@saxophone), class: "btn btn-secondary" %>
       <% end %>
