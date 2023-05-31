@@ -1,9 +1,11 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to saxophones_path, class: "navbar-brand" do %>
-      <%= image_tag "https://static.thenounproject.com/png/264538-200.png" %>
-    <% end %>
-
+    <div class="d-flex align-items-center justify-content-between">
+      <%= link_to saxophones_path, class: "navbar-brand" do %>
+        <%= image_tag "https://static.thenounproject.com/png/264538-200.png" %>
+      <% end %>
+      <p class="navbar-brand-name">EnColtrane</p>
+    </div>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
