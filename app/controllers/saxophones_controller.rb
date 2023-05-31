@@ -1,12 +1,13 @@
 class SaxophonesController < ApplicationController
   before_action :set_saxophone, only: %i[show edit update destroy]
+  skip_before_action :authenticate_user!, only: %i[home index show user_saxophones]
 
   def index
     @saxophones = policy_scope(Saxophone)
   end
 
   def show
-    authorize @saxophone
+    @saxophone = policy_scope(Saxophone).find(@saxophone.id)
   end
 
   def user_saxophones
