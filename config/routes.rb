@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   end
 
   get ":user_id/saxophones", to: "saxophones#user_saxophones", as: "user_saxophones"
-  get ":id/orders", to: "orders#index", as: "user_orders"
+  get ":user_id/orders", to: "orders#index", as: "user_orders"
 end
