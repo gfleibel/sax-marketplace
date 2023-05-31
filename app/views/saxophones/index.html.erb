@@ -5,19 +5,21 @@
       <div class="col-3 d-flex justify-content-center">
         <div class="card rounded-4 my-shadow shadow" style="width: 400px; height: 560px">
           <p class="card-text fw-bold text-start mt-4 ms-4" style="color:#bf4800"><%= sax.manufacturer %></p>
-        <% url = "" %>
+
+          <% url = "" %>
           <% if sax.photo.key
               url = cloudinary_url sax.photo.key
             else
               url = "https://i.pinimg.com/564x/2f/2f/58/2f2f5837fffa68b9b300c99eee660268.jpg"
             end
           %>
-          <img src= <%=url%> class="card-img-top p-5" alt="...">
+          <div class="img-container-card">
+            <img src= <%=url%> class="p-2" alt="...">
+          </div>
 
           <div class="card-body d-flex justify-content-around align-items-start">
-
             <div class="d-flex flex-column align-items-start">
-              <p class="card-text fw-bold text-center"><%= sax.title %></p>
+              <p class="card-text fw-bold"><%= sax.title %></p>
               <p class="card-text fw-bold card-title"><%= number_to_currency_br(sax.price) %></p>
             </div>
 
