@@ -5,7 +5,7 @@
       <img class="card-image" src=<%=cloudinary_url @saxophone.photo.key%> alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title fw-bold"><%= @saxophone.title %></h5>
-        <p class="card-text">Preço: R$ <%= @saxophone.price %></p>
+        <p class="card-text">Preço: R$ <%= number_to_currency_br(@saxophone.price) %></p>
         <div class="d-flex gap-3">
         <%= simple_form_for [@saxophone, @order], url: saxophone_orders_path(@saxophone), method: :post do |f| %>
           <%= f.hidden_field :user_id, value: current_user.id %>
