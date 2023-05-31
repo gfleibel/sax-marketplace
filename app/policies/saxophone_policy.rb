@@ -10,7 +10,7 @@ class SaxophonePolicy < ApplicationPolicy
   end
 
   def show?
-    true
+    record.id == id
   end
 
   def create?
