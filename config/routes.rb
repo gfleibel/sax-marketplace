@@ -7,4 +7,7 @@ Rails.application.routes.draw do
   end
 
   get ":user_id/saxophones", to: "saxophones#user_saxophones", as: "user_saxophones"
+  get ":id/orders", to: "orders#index", as: "user_orders"
+  get "order/new", to: "orders#new", as: "new_order"
+  post "order", to: "orders#create"
 end
