@@ -1,5 +1,15 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://c0.wallpaperflare.com/preview/857/353/296/music-saxophone-summer-gold.jpg);">
+  <div class="container">
+    <h1>Encontre o saxofone dos seus sonhos</h1>
+    <p>Instrumentos semi-novos</p>
+    <a class="btn btn-flat" href="#">Apply now</a>
+  </div>
+</div>
+
+
+
+
 <div class="container mt-4 mb-5">
-  <h1 class="text-start mt-4 mb-4">Todos os Saxofones</h1>
   <div class="row row-cols-1 row-cols-md-3 g-4">
     <% @saxophones = @saxophones.sort_by(&:id).reverse %>
     <% @saxophones.each do |sax| %>
