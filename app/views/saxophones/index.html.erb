@@ -1,6 +1,7 @@
 <div class="container mt-4 mb-5">
   <h1 class="text-start mt-4 mb-4">Todos os Saxofones</h1>
   <div class="row row-cols-1 row-cols-md-3 g-4">
+    <% @saxophones = @saxophones.sort_by(&:id).reverse %>
     <% @saxophones.each do |sax| %>
       <div class="col-3 d-flex justify-content-center">
         <div class="card rounded-4 my-shadow shadow-sm ps-3 pe-3" style="width: 400px; height: 560px">

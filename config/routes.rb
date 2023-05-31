@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "pages#home"
+  root to: "saxophones#index"
 
   resources :saxophones do
     get :my_saxophones, on: :collection, as: "my"
