@@ -30,8 +30,13 @@
       <p><strong> Estado: </strong><%= @saxophone.condition %></p>
       <div class="d-flex gap-3">
     </div>
-      <%= link_to "Comprar", saxophone_path(@saxophone), class: "btn btn-primary shadow-sm" %>
+
+      <% if @saxophone.user != current_user %>
+        <%= link_to "Comprar", new_saxophone_order_path(@saxophone), class: "btn btn-primary shadow-sm" %>
+      <% end %>
+
       <%= link_to "Outros produtos deste vendedor",  user_saxophones_path(@saxophone.user), class: "btn btn-light border rounded-2 shadow-sm" %>
+
       <% if policy(@saxophone).edit? %>
         <%= link_to "Editar", edit_saxophone_path(@saxophone), class: "btn btn-secondary" %>
       <% end %>

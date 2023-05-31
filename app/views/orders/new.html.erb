@@ -1,0 +1,11 @@
+<div class='container'>
+  <h1>Confirme sua compra</h1>
+  <p><%= @saxophone.title %></p>
+
+  <%= simple_form_for [@saxophone, @order] do |f| %>
+    <% f.hidden_field :user_id, value: current_user.id %>
+    <% f.hidden_field :saxophone_id, value: @saxophone.id %>
+    <%= f.button :submit %>
+  <% end %>
+
+</div>

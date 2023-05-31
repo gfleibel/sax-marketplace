@@ -7,7 +7,7 @@ Saxophone.destroy_all
 puts 'Cleaning db...'
 User.destroy_all
 
-10.times do
+20.times do
   User.create!(email: Faker::Internet.email, password: "123456", full_name: Faker::Name.name, address: Faker::Address.full_address)
 end
 
@@ -24,7 +24,7 @@ Unsplash.configure do |config|
   config.utm_source = "alices_terrific_client_app"
 end
 
-5.times do
+50.times do
   saxophone = Saxophone.new(title: Saxophone::MANUFACTURERS.sample + " " + Saxophone::MODELS.sample,
     manufacturer: Saxophone::MANUFACTURERS.sample,
     category: Saxophone::CATEGORIES.sample,
