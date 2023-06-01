@@ -1,8 +1,7 @@
-<div class="container mt-4 mb-5">
   <h1 class="text-start mt-4 mb-4">Meus pedidos</h1>
     <% @orders = @orders.sort_by(&:id).reverse %>
     <% @orders.each do |order| %>
-      <div class="row justify-content-center mt-5">
+      <div class="row justify-content-center mt-5 mb-4">
         <div class="col-12 p-5 d-flex gap-3 show-card">
           <div class="status col-2 m-0 p-0">
             <p class="m-0"><strong> Pedido #</strong><%= order.id %></p>
@@ -19,7 +18,7 @@
             <img src= <%=url%> class="sax-picture me-2" alt="...">
           </div>
           <div class="info">
-            <h1 class="mb-3"><%= order.saxophone.title %></h1>
+            <h1 class="mb-3 text-dark"><%= order.saxophone.title %></h1>
             <div class="d-flex gap-3">
               <p><strong> Fabricante: </strong><%= order.saxophone.manufacturer %></p>
               <p><strong> Modelo: </strong><%= order.saxophone.sax_model %></p>
@@ -38,4 +37,3 @@
       </div>
     <% end %>
   </div>
-</div>
