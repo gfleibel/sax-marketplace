@@ -10,3 +10,10 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding-bottom: 30px;
+}

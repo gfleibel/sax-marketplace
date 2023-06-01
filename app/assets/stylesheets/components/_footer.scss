@@ -1,18 +1,15 @@
 .footer {
   background: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 100px;
-  padding: 0px 50px;
   color: rgba(0, 0, 0, 0.5);
-  left: 0;
-  right: 0;
-  bottom: 0;
   width: 100%;
   margin-top: auto;
 }
-
+.footer-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
 .footer-links {
   display: flex;
   align-items: center;

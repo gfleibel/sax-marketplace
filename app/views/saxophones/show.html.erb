@@ -1,4 +1,4 @@
-<div class="row justify-content-center mt-5">
+<div class="row justify-content-center mt-5 mb-5">
   <div class="col-10 p-5 d-flex gap-3 show-card">
     <div class="picture">
       <% url = "" %>
@@ -11,7 +11,7 @@
       <img src= <%=url%> class="sax-picture me-2" alt="...">
     </div>
     <div class="info">
-      <h1 class="mb-3"><%= @saxophone.title %></h1>
+      <h1 class="mb-3 text-dark"><%= @saxophone.title %></h1>
       <div class="d-flex gap-3">
         <p><strong> Fabricante: </strong><%= @saxophone.manufacturer %></p>
         <p><strong> Modelo: </strong><%= @saxophone.sax_model %></p>
