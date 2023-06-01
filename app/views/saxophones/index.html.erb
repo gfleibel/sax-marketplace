@@ -15,37 +15,31 @@
         Soprillo
       </div>
     <% end %>
-
     <%= link_to saxophones_path(category: "Saxofone Sopranino"), class: "text-decoration-none"  do %>
       <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.shopify.com/s/files/1/0301/6081/4139/products/sopraninoweb.jpg?v=1641561203">
         Sopranino
       </div>
     <% end %>
-
     <%= link_to saxophones_path(category: "Saxofone Soprano"), class: "text-decoration-none"  do %>
       <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.pixabay.com/photo/2015/07/13/11/19/instrument-843033_1280.jpg)">
         Soprano
       </div>
     <% end %>
-
     <%= link_to saxophones_path(category: "Saxofone Alto"), class: "text-decoration-none"  do %>
       <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.pixabay.com/photo/2017/08/15/13/31/instrument-2643927_1280.jpg)">
         Alto
       </div>
     <% end %>
-
     <%= link_to saxophones_path(category: "Saxofone Tenor"), class: "text-decoration-none"  do %>
       <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.pixabay.com/photo/2018/05/28/10/17/saxophone-3435687_1280.jpg)">
         Tenor
       </div>
     <% end %>
-
     <%= link_to saxophones_path(category: "Saxofone Barítono"), class: "text-decoration-none"  do %>
       <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.pixabay.com/photo/2015/07/13/11/09/saxophone-843021_1280.jpg)">
         Barítono
       </div>
     <% end %>
-
     <%= link_to saxophones_path(category: "Saxofone Baixo"), class: "text-decoration-none"  do %>
       <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.pixabay.com/photo/2015/07/13/11/13/instrument-843024_1280.jpg)">
         Baixo
@@ -59,18 +53,30 @@
       </div>
     <% end %>
   </div>
+</div>
 
-  <div class="row row-cols-1 row-cols-md-3 g-4">
-    <% @saxophones = @saxophones.sort_by(&:id).reverse %>
-    <% @saxophones.each do |sax| %>
-      <% if sax.status != true %>
+<div class="container mt-4 mb-5">
+  <div class="cards-add p-2 mb-4">
+  <% @saxophones = @saxophones.sort_by(&:id).reverse %>
+  <% @saxophones.each do |sax| %>
+    <% if sax.status != true %>
+      <div class="card-category-add">
 
-      <div class="col-3 d-flex justify-content-center">
+        <% url = "" %>
+        <% if sax.photo.key
+            url = cloudinary_url sax.photo.key
+          else
+            url = "https://i.pinimg.com/564x/2f/2f/58/2f2f5837fffa68b9b300c99eee660268.jpg"
+          end
+        %>
 
-        <div class="card my-shadow shadow-sm ps-3 pe-3 d-flex flex-column" style="width: 400px; height: 560px">
+        <div class="img-container-card">
+          <img src= <%=url%> alt="sax pic">
+        </div>
 
-          <div class="d-flex avatar-owner">
-            <p class="card-text fw-bold text-start mt-4" style="color:#bf4800"><%= sax.manufacturer %></p>
+        <div class="card-info">
+          <div class="d-flex gap-3 mb-2 justify-content-between">
+            <p class="card-title-add pt-2"><%= sax.title %></p>
             <% sax_url = "" %>
             <% if sax.user.photo.key
                 sax_url = cloudinary_url sax.user.photo.key
@@ -79,34 +85,24 @@
               end
             %>
             <%= link_to user_saxophones_path(sax.user) do %>
-            <img src= <%=sax_url%> class="rounded-circle avatar-image" alt="...">
+            <img src="<%=sax_url%>" class="rounded-circle avatar-image" alt="...">
             <% end %>
           </div>
 
-          <% url = "" %>
-          <% if sax.photo.key
-              url = cloudinary_url sax.photo.key
-            else
-              url = "https://i.pinimg.com/564x/2f/2f/58/2f2f5837fffa68b9b300c99eee660268.jpg"
-            end
-          %>
-          <div class="img-container-card mt-3">
-            <img src= <%=url%> class="rounded-4" alt="...">
+          <div class="d-flex gap-3 mb-2">
+            <p class="card-title-text" style="color:#bf4800"><%= sax.manufacturer %></p>
+            <p class="card-title-text" style="color:#bf4800"><%= sax.sax_model %></p>
           </div>
-          <div class="card-body ps-1 mb-2">
-            <div class="d-flex flex-column">
-              <p class="card-text fw-bold mb-2"><%= sax.title %></p>
-              <p class="card-details"><%= "#{sax.details[0..40]}..." %></p>
-              <div class="d-flex justify-content-between align-items-center mt-3">
-                <p class="card-price"><%= number_to_currency_br(sax.price) %></p>
-                <%= link_to "Detalhes", saxophone_path(sax), class: "btn btn-light fw-bold rounded-2 shadow-sm" %>
-              </div>
-            </div>
+          <p class="card-details"><%= "#{sax.details[0..40]}..." %></p>
+          <div class="d-flex justify-content-between align-items-center">
+            <p class="card-price"><%= number_to_currency_br(sax.price) %></p>
+            <%= link_to saxophone_path(sax), class:"btn-details" do %>
+              <i class="fa-solid fa-magnifying-glass"></i>
+            <% end %>
           </div>
         </div>
       </div>
-      <% end %>
     <% end %>
+  <% end %>
   </div>
-
 </div>

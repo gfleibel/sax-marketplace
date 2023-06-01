@@ -1,6 +1,11 @@
 .sax-picture{
   height: 100%;
-  width: 200px;
-  border-radius: 8px;
+  width: 300px;
   object-fit: cover;
+  margin-right: 10px;
+}
+
+.picture{
+  height: 100%;
+  overflow: hidden;
 }

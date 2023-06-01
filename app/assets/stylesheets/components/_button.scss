@@ -1,17 +1,23 @@
 .btn-edit{
-  position: absolute;
-  top: 5%;
-  right: 5%;
-  color: black;
+  color: rgb(255, 255, 255);
+}
+
+.btn-edit:hover{
+  color: rgb(173, 173, 173)
 }
 
 .btn-delete{
-  position: absolute;
-  top: 75%;
-  right: 5%;
-  color: black;
+  color: rgb(255, 255, 255);
 }
 
 .btn-delete:hover{
-  color: red;
+  color: rgb(173, 173, 173)
+}
+
+.btn-details{
+  color: white;
+}
+
+.btn-details:hover{
+  color:rgb(173, 173, 173);
 }

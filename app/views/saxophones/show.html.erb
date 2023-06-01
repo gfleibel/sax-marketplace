@@ -1,5 +1,5 @@
 <div class="row justify-content-center mt-5 mb-5">
-  <div class="col-10 p-5 d-flex gap-3 show-card">
+  <div class="col-10 d-flex gap-3 show-card">
     <div class="picture">
       <% url = "" %>
       <% if @saxophone.photo.key
@@ -8,10 +8,10 @@
           url = "https://i.pinimg.com/564x/2f/2f/58/2f2f5837fffa68b9b300c99eee660268.jpg"
         end
       %>
-      <img src= <%=url%> class="sax-picture me-2" alt="...">
+      <img src= <%=url%> class="sax-picture" alt="...">
     </div>
-    <div class="info">
-      <h1 class="mb-3 text-dark"><%= @saxophone.title %></h1>
+    <div class="info m-5">
+      <h1 class="mb-3"><%= @saxophone.title %></h1>
       <div class="d-flex gap-3">
         <p><strong> Fabricante: </strong><%= @saxophone.manufacturer %></p>
         <p><strong> Modelo: </strong><%= @saxophone.sax_model %></p>
