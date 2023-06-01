@@ -28,7 +28,7 @@
             <% if current_user.photo.key %>
               <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle" , id: "navbarDropdown", data: { bs_toggle: "dropdown" }, "aria-haspopup": true, "aria-expanded": false, height: 50, width: 50, crop: :fill%>
             <% else %>
-              <%= cl_image_tag "user_png", class: "avatar dropdown-toggle" , id: "navbarDropdown", data: { bs_toggle: "dropdown" }, "aria-haspopup": true, "aria-expanded": false, height: 50, width: 50, crop: :fill%>
+              <%= image_tag "https://res.cloudinary.com/dfjub9qt4/image/upload/v1685459177/user_png.png", class: "avatar dropdown-toggle" , id: "navbarDropdown", data: { bs_toggle: "dropdown" }, "aria-haspopup": true, "aria-expanded": false, height: 50, width: 50, crop: :fill%>
             <% end %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Meus items", user_saxophones_path(current_user.id), class: "dropdown-item" %>
