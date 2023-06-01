@@ -1,28 +1,31 @@
 <div class="row justify-content-center mt-4">
-  <div class="col-4">
-    <h2>Sign up</h2>
+  <div class="col-4 card p-5">
+    <h2 class="mb-4">Cadastro</h2>
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= f.error_notification %>
 
-      <div class="form-inputs">
-        <%= f.input :full_name %>
-        <%= f.input :address %>
+      <div class="form-inputs mb-4">
+        <%= f.input :full_name, label: "Nome completo" %>
+        <%= f.input :address, label: "Endereço" %>
         <%= f.input :email,
+                    label: "Email",
                     required: true,
                     autofocus: true,
                     input_html: { autocomplete: "email" }%>
         <%= f.input :password,
+                    label: "Senha",
                     required: true,
                     hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                     input_html: { autocomplete: "new-password" } %>
         <%= f.input :password_confirmation,
+                    label: "Confirme a senha",
                     required: true,
                     input_html: { autocomplete: "new-password" } %>
-         <%= f.input :photo, as: :file %>
+         <%= f.input :photo, label: "Foto de perfil", as: :file %>
       </div>
 
       <div class="d-grid">
-        <%= f.button :submit, "Submit", class: "btn btn-primary" %>
+        <%= f.button :submit, "Cadastrar", class: "btn btn-success text-light mb-3" %>
       </div>
     <% end %>
 
