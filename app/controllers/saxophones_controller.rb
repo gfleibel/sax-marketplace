@@ -4,6 +4,9 @@ class SaxophonesController < ApplicationController
 
   def index
     @saxophones = policy_scope(Saxophone)
+    if params[:category].present?
+      @saxophones = @saxophones.where(category: params[:category])
+    end
   end
 
   def show
