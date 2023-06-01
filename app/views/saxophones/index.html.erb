@@ -5,11 +5,9 @@
   </div>
 </div>
 
-
-
 <div class="container mt-4 mb-5">
 
-  <div class="cards p-2 mb-4">
+  <div class=" cards mb-4 w-100">
     <%= link_to saxophones_path(category: "Saxofone Soprillo"), class: "text-decoration-none"  do %>
       <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.pixabay.com/photo/2020/02/11/22/36/jazz-4841134_1280.jpg)">
         Soprillo
@@ -52,7 +50,6 @@
       </div>
     <% end %>
 
-
     <%= link_to saxophones_path(category: "Saxofone Contrabaixo"), class: "text-decoration-none"  do %>
       <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.pixabay.com/photo/2015/07/13/11/24/instrument-843045_1280.jpg)">
         Contrabaixo
@@ -60,14 +57,14 @@
     <% end %>
   </div>
 
-  <div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="row row-cols-1 row-cols-md-3 g-4 ">
     <% @saxophones = @saxophones.sort_by(&:id).reverse %>
     <% @saxophones.each do |sax| %>
       <% if sax.status != true %>
 
-      <div class="col-3 d-flex justify-content-center">
+      <div>
 
-        <div class="card my-shadow shadow-sm ps-3 pe-3 d-flex flex-column" style="width: 400px; height: 560px">
+        <div class="card my-shadow shadow-sm ps-3 pe-3 d-flex flex-column" style="height: 560px">
 
           <div class="d-flex avatar-owner">
             <p class="card-text fw-bold text-start mt-4" style="color:#bf4800"><%= sax.manufacturer %></p>
