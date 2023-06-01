@@ -7,6 +7,9 @@ class SaxophonesController < ApplicationController
     if params[:category].present?
       @saxophones = @saxophones.where(category: params[:category])
     end
+    if params[:query].present?
+      @saxophones = Saxophone.algolia_search(params[:query])
+    end
   end
 
   def show

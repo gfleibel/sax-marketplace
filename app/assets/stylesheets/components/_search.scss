@@ -1,0 +1,25 @@
+.search-form {
+  position: relative;
+}
+.search-bar {
+  border-radius: 25px;
+}
+.btn-search {
+  border-radius: 50%;
+  border: none;
+  background-color: rgb(35, 35, 35);
+  color: white;
+  position: absolute;
+  right: 0;
+  height: 44px;
+  right: -8px;
+  width: 44px;
+  top: -3px;
+  transition-property: width, height, color;
+  transition-duration: 0.8s;
+}
+
+.btn-search:hover {
+  // background: linear-gradient(90deg, var(--c1, #f6d365), var(--c2, #fda085) 51%, var(--c1, #f6d365)) var(--x, 0)/ 200%;
+  background: linear-gradient(rgb(255, 197, 6), rgb(255, 163, 3));
+}
