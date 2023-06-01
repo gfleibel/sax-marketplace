@@ -8,4 +8,10 @@ class User < ApplicationRecord
 
   has_many :saxophones
   validates :full_name, :address, presence: true
+
+  include AlgoliaSearch
+
+  algoliasearch per_environment: true do
+    attribute :full_name
+  end
 end
