@@ -60,15 +60,12 @@
     <% end %>
   </div>
 
-  <div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="home-cards-grid">
     <% @saxophones = @saxophones.sort_by(&:id).reverse %>
     <% @saxophones.each do |sax| %>
       <% if sax.status != true %>
 
-      <div class="col-3 d-flex justify-content-center">
-
-        <div class="card my-shadow shadow-sm ps-3 pe-3 d-flex flex-column" style="width: 400px; height: 560px">
-
+        <div class="card my-shadow shadow-sm ps-3 pe-3 d-flex flex-column" style=" height: 560px">
           <div class="d-flex avatar-owner">
             <p class="card-text fw-bold text-start mt-4" style="color:#bf4800"><%= sax.manufacturer %></p>
             <% sax_url = "" %>
@@ -104,7 +101,7 @@
             </div>
           </div>
         </div>
-      </div>
+
       <% end %>
     <% end %>
   </div>
