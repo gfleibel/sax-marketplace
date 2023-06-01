@@ -85,3 +85,5 @@ gem "cloudinary"
 gem "pundit"
 
 gem 'unsplash'
+
+gem "algoliasearch-rails"

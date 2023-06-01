@@ -2,6 +2,21 @@
   <div class="container">
     <h1>Encontre o saxofone dos seus sonhos</h1>
     <p>Instrumentos semi-novos</p>
+    <div class="row justify-content-center">
+    <div class="col-sm-8 my-3">
+      <%= form_with url: saxophones_path, method: :get, class: "d-flex search-form" do %>
+        <%= text_field_tag :query,
+              params[:query],
+              class: "form-control search-bar",
+              placeholder: "Digite aqui ..."
+          %>
+
+        <%= button_tag(type: "submit", class: "btn-search") do %>
+            <i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
   </div>
 </div>
 
