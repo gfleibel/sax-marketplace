@@ -10,27 +10,10 @@ class Saxophone < ApplicationRecord
   CONDITIONS = ["Usado - Excelente estado", "Usado - Bom estado", "Usado - Condição justa", "Revisado", "Danificado - Pode ser consertado", "Danificado - Para peças de reposição"]
 
   algoliasearch do
-    # all attributes will be sent
-    attribute :created_at, :title, :manufacturer, :category, :sax_model, :condition, :serial_number, :details, :user_id
+    attribute :title, :manufacturer, :category, :sax_model, :condition, :serial_number, :details, :user_id
+    attribute :user_name do
+      user&.full_name
+    end
+    searchableAttributes [:title, :manufacturer, :category, :sax_model, :condition, :serial_number, :details, 'user_name']
   end
-
 end
-
-
-
-
-
-
-# algoliasearch per_environment: true do
-#   attribute :created_at, :title, :manufacturer, :category, :sax_model, :condition, :serial_number, :details
-#   # user full_name
-
-
-#   # `title` is more important than `{story,comment}_text`, `{story,comment}_text` more than `url`, `url` more than `author`
-#   # btw, do not take into account position in most fields to avoid first word match boost
-#   searchableAttributes ['unordered(title)', 'unordered(story_text)', 'unordered(comment_text)', 'unordered(url)', 'author']
-
-#   # tags used for filtering
-#   tags do
-#     [item_type, "author_#{author}", "story_#{story_id}"]
-#   end
