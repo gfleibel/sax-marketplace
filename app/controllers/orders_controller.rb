@@ -7,6 +7,19 @@ class OrdersController < ApplicationController
     @saxophones = policy_scope(Saxophone).where(user_id: @user.id)
   end
 
+  def sales
+    @user = current_user
+    @saxophones = policy_scope(Saxophone)
+    @sold_saxophones = @saxophones.where(user_id: @user.id, status: true)
+    @sold_orders = []
+    if @sold_saxophones.present?
+      @sold_saxophones.each do |sax|
+        @sold_orders << Order.find_by(saxophone_id: sax.id)
+      end
+    end
+    @sold_orders
+  end
+
   def new
     @order = Order.new
     @saxophone = Saxophone.find(params[:saxophone_id])

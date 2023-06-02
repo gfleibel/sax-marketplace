@@ -9,4 +9,5 @@ Rails.application.routes.draw do
 
   get ":user_id/saxophones", to: "saxophones#user_saxophones", as: "user_saxophones"
   get ":user_id/orders", to: "orders#index", as: "user_orders"
+  get ":user_id/sales", to: "orders#sales", as: "user_sales"
 end
