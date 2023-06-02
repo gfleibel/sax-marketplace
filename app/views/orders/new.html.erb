@@ -1,18 +1,20 @@
-<div class="row justify-content-center mt-5 mb-5">
-  <div class="col-6">
-    <h1>Confirme sua compra</h1>
-    <div class="card mt-3" style="width: 100%;">
-      <img class="card-image" src=<%=cloudinary_url @saxophone.photo.key%> alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title fw-bold"><%= @saxophone.title %></h5>
-        <p class="card-text">Preço: R$ <%= number_to_currency_br(@saxophone.price) %></p>
-        <div class="d-flex gap-3">
-        <%= simple_form_for [@saxophone, @order], url: saxophone_orders_path(@saxophone), method: :post do |f| %>
-          <%= f.hidden_field :user_id, value: current_user.id %>
-          <%= f.hidden_field :saxophone_id, value: @saxophone.id %>
-          <%= f.submit "Confirmar", class:"btn btn-success text-light shadow-sm"%>
-        <% end %>
-        <%= link_to "Voltar", saxophone_path(@saxophone), class:"btn btn-secondary shadow-sm" %>
+<div class="container mt-5 mb-5">
+  <div class="row justify-content-center mt-5 mb-5">
+    <div class="col-6">
+      <h1>Confirme sua compra</h1>
+      <div class="card mt-3" style="width: 100%;">
+        <img class="card-image" src=<%=cloudinary_url @saxophone.photo.key%> alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title fw-bold"><%= @saxophone.title %></h5>
+          <p class="card-text">Preço: R$ <%= number_to_currency_br(@saxophone.price) %></p>
+          <div class="d-flex gap-3">
+          <%= simple_form_for [@saxophone, @order], url: saxophone_orders_path(@saxophone), method: :post do |f| %>
+            <%= f.hidden_field :user_id, value: current_user.id %>
+            <%= f.hidden_field :saxophone_id, value: @saxophone.id %>
+            <%= f.submit "Confirmar", class:"btn btn-success text-light shadow-sm"%>
+          <% end %>
+          <%= link_to "Voltar", saxophone_path(@saxophone), class:"btn btn-secondary shadow-sm" %>
+          </div>
         </div>
       </div>
     </div>

@@ -1,11 +1,11 @@
-<div class="row justify-content-center mt-4">
+<div class="row justify-content-center mt-4 mb-5">
   <div class="col-4 card p-5">
     <h2 class="mb-4">Editar dados</h2>
 
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= f.error_notification %>
 
-      <div class="form-inputs">
+      <div class="form-inputs mb-3">
         <%= f.input :email, required: true, autofocus: true %>
 
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -47,7 +47,7 @@
       </div>
     <% end %>
 
-    <h5>Cancel my account</h5>
+    <h5>Apagar minha conta</h5>
 
     <div>
       <%= button_to "Cancelar minha conta", registration_path(resource_name), data: { confirm: "Tem certeza?", turbo_confirm: "Tem certeza?" }, method: :delete, class: "btn btn-danger text-light mb-4" %>
