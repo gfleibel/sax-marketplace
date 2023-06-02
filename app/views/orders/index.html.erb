@@ -1,43 +1,48 @@
-<div class="container mt-5 mb-5">
-  <h1 class="text-start mt-4 mb-4">Meus pedidos</h1>
-    <% @orders = @orders.sort_by(&:id).reverse %>
-    <% @orders.each do |order| %>
-      <div class="row justify-content-center mt-5 mb-4">
-        <div class="col-12 p-5 d-flex gap-3 show-card">
-          <div class="status col-2 m-0 p-0">
-            <p class="m-0"><strong> Pedido #</strong><%= order.id %></p>
-            <p class="m-0"><strong> Comprado em: </strong><%= convert_to_brazilian_date(order.created_at.to_date) %></p>
-          </div>
-          <div class="picture">
-            <% url = "" %>
-            <% if order.saxophone.photo.key
-                url = cloudinary_url order.saxophone.photo.key
-              else
-                url = "https://i.pinimg.com/564x/2f/2f/58/2f2f5837fffa68b9b300c99eee660268.jpg"
-              end
-            %>
-            <img src= <%=url%> class="sax-picture me-2" alt="...">
+<div class="banner-small" style="background-image: linear-gradient(to bottom, rgba(255, 179, 0, 0), rgba(0, 0, 0, 1)), url(https://c0.wallpaperflare.com/preview/857/353/296/music-saxophone-summer-gold.jpg);">
+  <div class="container">
+    <h1 class="page-title text-start mt-2 mb-2">Meus pedidos</h1>  </div>
+  </div>
+</div>
+
+<div class="container mb-5">
+  <% @orders = @orders.sort_by(&:id).reverse %>
+  <% @orders.each do |order| %>
+    <div class="row justify-content-center mt-5 mb-1">
+      <div class="col-12 p-5 d-flex gap-3 show-card">
+        <div class="status col-2 m-0 p-0">
+          <p class="m-0"><strong> Pedido #</strong><%= order.id %></p>
+          <p class="m-0"><strong> Comprado em: </strong><%= convert_to_brazilian_date(order.created_at.to_date) %></p>
+        </div>
+        <div class="picture">
+          <% url = "" %>
+          <% if order.saxophone.photo.key
+              url = cloudinary_url order.saxophone.photo.key
+            else
+              url = "https://i.pinimg.com/564x/2f/2f/58/2f2f5837fffa68b9b300c99eee660268.jpg"
+            end
+          %>
+          <img src= <%=url%> class="sax-picture me-2" alt="...">
+        </div>
+
+        <div class="info ms-3">
+          <h1 class="mb-3"><%= order.saxophone.title %></h1>
+          <div class="d-flex gap-3">
+            <p><strong> Fabricante: </strong><%= order.saxophone.manufacturer %></p>
+            <p><strong> Modelo: </strong><%= order.saxophone.sax_model %></p>
+            <p><strong> Categoria: </strong><%= order.saxophone.category %></p>
           </div>
 
-          <div class="info ms-3">
-            <h1 class="mb-3"><%= order.saxophone.title %></h1>
-            <div class="d-flex gap-3">
-              <p><strong> Fabricante: </strong><%= order.saxophone.manufacturer %></p>
-              <p><strong> Modelo: </strong><%= order.saxophone.sax_model %></p>
-              <p><strong> Categoria: </strong><%= order.saxophone.category %></p>
-            </div>
-
-            <p class="card-details"><%= order.saxophone.details %></p>
-            <p><strong> Número de série: </strong><%= order.saxophone.serial_number %></p>
-            <p><strong> Preço: </strong><%= number_to_currency_br(order.saxophone.price) %></p>
-            <p><strong> Estado: </strong><%= order.saxophone.condition %></p>
-            <p><strong> Vendedor: </strong><%= order.saxophone.user.full_name %></p>
-            <div class="d-flex gap-3">
-          </div>
-            <%= link_to "Outros produtos deste vendedor",  user_saxophones_path(order.saxophone.user), class: "btn btn-light border rounded-2 shadow-sm" %>
-          </div>
+          <p class="card-details"><%= order.saxophone.details %></p>
+          <p><strong> Número de série: </strong><%= order.saxophone.serial_number %></p>
+          <p><strong> Preço: </strong><%= number_to_currency_br(order.saxophone.price) %></p>
+          <p><strong> Estado: </strong><%= order.saxophone.condition %></p>
+          <p><strong> Vendedor: </strong><%= order.saxophone.user.full_name %></p>
+          <div class="d-flex gap-3">
+        </div>
+          <%= link_to "Outros produtos deste vendedor",  user_saxophones_path(order.saxophone.user), class: "btn btn-light border rounded-2 shadow-sm" %>
         </div>
       </div>
-    <% end %>
+    </div>
+  <% end %>
   </div>
 </div>
