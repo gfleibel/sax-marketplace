@@ -1,3 +1,4 @@
+<div class="container mt-5 mb-5">
   <h1 class="text-start mt-4 mb-4">Meus pedidos</h1>
     <% @orders = @orders.sort_by(&:id).reverse %>
     <% @orders.each do |order| %>
@@ -25,7 +26,7 @@
               <p><strong> Modelo: </strong><%= order.saxophone.sax_model %></p>
               <p><strong> Categoria: </strong><%= order.saxophone.category %></p>
             </div>
-            
+
             <p class="card-details"><%= order.saxophone.details %></p>
             <p><strong> Número de série: </strong><%= order.saxophone.serial_number %></p>
             <p><strong> Preço: </strong><%= number_to_currency_br(order.saxophone.price) %></p>
@@ -39,3 +40,4 @@
       </div>
     <% end %>
   </div>
+</div>

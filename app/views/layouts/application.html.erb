@@ -12,9 +12,7 @@
 
   <body>
     <%= render "shared/navbar" %>
-    <div class= "<%= 'container mt-5 mb-5' unless hide_container? %>">
-      <%= yield %>
-    </div>
+    <%= yield %>
     <%= render "shared/flashes" %>
     <%= render "shared/footer" %>
   </body>
