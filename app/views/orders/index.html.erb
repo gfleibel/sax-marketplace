@@ -22,17 +22,19 @@
           </div>
 
           <div class="info m-5">
-            <h1 class="mb-3"><%= order.saxophone.title %></h1>
-            <div class="d-flex gap-3">
-              <p><strong> Fabricante: </strong><%= order.saxophone.manufacturer %></p>
-              <p><strong> Modelo: </strong><%= order.saxophone.sax_model %></p>
-              <p><strong> Categoria: </strong><%= order.saxophone.category %></p>
+            <div>
+              <h1 class="mb-3"><%= order.saxophone.title %></h1>
+              <div class="d-flex gap-3">
+                <p><strong> Fabricante: </strong><%= order.saxophone.manufacturer %></p>
+                <p><strong> Modelo: </strong><%= order.saxophone.sax_model %></p>
+                <p><strong> Categoria: </strong><%= order.saxophone.category %></p>
+              </div>
+              <p class="card-details"><%= order.saxophone.details %></p>
+              <p><strong> Número de série: </strong><%= order.saxophone.serial_number %></p>
+              <p><strong> Preço: </strong><%= number_to_currency_br(order.saxophone.price) %></p>
+              <p><strong> Estado: </strong><%= order.saxophone.condition %></p>
             </div>
-            <p class="card-details"><%= order.saxophone.details %></p>
-            <p><strong> Número de série: </strong><%= order.saxophone.serial_number %></p>
-            <p><strong> Preço: </strong><%= number_to_currency_br(order.saxophone.price) %></p>
-            <p><strong> Estado: </strong><%= order.saxophone.condition %></p>
-            <%= link_to "Outros produtos deste vendedor",  user_saxophones_path(order.saxophone.user), class: "btn btn-light border rounded-2 shadow-sm" %>
+            <%= link_to "Outros produtos deste vendedor",  user_saxophones_path(order.saxophone.user), class: "btn btn-light border rounded-2 shadow-sm w-50" %>
           </div>
         </div>
     <% end %>

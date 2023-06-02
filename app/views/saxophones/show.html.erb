@@ -21,30 +21,32 @@
       </div>
 
       <div class="info m-5">
-        <h1 class="mb-3"><%= @saxophone.title %></h1>
-        <div class="d-flex gap-3">
-          <p><strong> Fabricante: </strong><%= @saxophone.manufacturer %></p>
-          <p><strong> Modelo: </strong><%= @saxophone.sax_model %></p>
-          <p><strong> Categoria: </strong><%= @saxophone.category %></p>
+        <div>
+          <h1 class="mb-3"><%= @saxophone.title %></h1>
+          <div class="d-flex gap-3">
+            <p><strong> Fabricante: </strong><%= @saxophone.manufacturer %></p>
+            <p><strong> Modelo: </strong><%= @saxophone.sax_model %></p>
+            <p><strong> Categoria: </strong><%= @saxophone.category %></p>
+          </div>
+          <p class="card-details"><%= @saxophone.details %></p>
+          <p><strong> Número de série: </strong><%= @saxophone.serial_number %></p>
+          <p><strong> Preço: </strong><%= number_to_currency_br(@saxophone.price) %></p>
+          <p><strong> Estado: </strong><%= @saxophone.condition %></p>
         </div>
-        <p class="card-details"><%= @saxophone.details %></p>
-        <p><strong> Número de série: </strong><%= @saxophone.serial_number %></p>
-        <p><strong> Preço: </strong><%= number_to_currency_br(@saxophone.price) %></p>
-        <p><strong> Estado: </strong><%= @saxophone.condition %></p>
-        <div class="d-flex gap-3">
+        <div>
+          <% if @saxophone.user != current_user %>
+            <%= link_to "Comprar", new_saxophone_order_path(@saxophone), class: "btn btn-primary shadow-sm" %>
+          <% end %>
+
+          <%= link_to "Outros produtos deste vendedor",  user_saxophones_path(@saxophone.user), class: "btn btn-light border rounded-2 shadow-sm" %>
+
+          <% if policy(@saxophone).edit? %>
+            <%= link_to "Editar", edit_saxophone_path(@saxophone), class: "btn btn-secondary" %>
+          <% end %>
+          <%= link_to "Remover", saxophone_path(@saxophone), data: {turbo_method: :delete, turbo_confirm: 'Você tem certeza?'}, class: "btn btn-danger text-light" if policy(@saxophone).destroy?%>
+        </div>
       </div>
 
-        <% if @saxophone.user != current_user %>
-          <%= link_to "Comprar", new_saxophone_order_path(@saxophone), class: "btn btn-primary shadow-sm" %>
-        <% end %>
-
-        <%= link_to "Outros produtos deste vendedor",  user_saxophones_path(@saxophone.user), class: "btn btn-light border rounded-2 shadow-sm" %>
-
-        <% if policy(@saxophone).edit? %>
-          <%= link_to "Editar", edit_saxophone_path(@saxophone), class: "btn btn-secondary" %>
-        <% end %>
-        <%= link_to "Remover", saxophone_path(@saxophone), data: {turbo_method: :delete, turbo_confirm: 'Você tem certeza?'}, class: "btn btn-danger text-light" if policy(@saxophone).destroy?%>
-      </div>
     </div>
   </div>
 </div>
