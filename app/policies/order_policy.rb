@@ -9,6 +9,10 @@ class OrderPolicy < ApplicationPolicy
     record.first.user == user
   end
 
+  def sales?
+    record.first.user == user
+  end
+
   def create?
     true
   end

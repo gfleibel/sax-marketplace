@@ -3,8 +3,8 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   include Pundit::Authorization
 
-  after_action :verify_authorized, except: %i[index show user_saxophones], unless: :skip_pundit?
-  after_action :verify_policy_scoped, only: %i[index show user_saxophones], unless: :skip_pundit?
+  after_action :verify_authorized, except: %i[index sales show user_saxophones], unless: :skip_pundit?
+  after_action :verify_policy_scoped, only: %i[index sales show user_saxophones], unless: :skip_pundit?
 
   def configure_permitted_parameters
     # For additional fields in app/views/devise/registrations/new.html.erb
