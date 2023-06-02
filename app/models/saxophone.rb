@@ -15,5 +15,6 @@ class Saxophone < ApplicationRecord
       user&.full_name
     end
     searchableAttributes [:title, :manufacturer, :category, :sax_model, :condition, :serial_number, :details, 'user_name']
+    queryType 'prefixAll'
   end
 end
